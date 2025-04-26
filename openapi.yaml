@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: Crypto Tracker API
+  version: 1.0.0
+  description: |
+    A simple API to fetch top cryptocurrencies, search for coins, and get detailed coin information.
+servers:
+  - url: http://localhost:3000
+paths:
+  /:
+    get:
+      summary: Get top 10 cryptocurrencies by market cap
+      responses:
+        '200':
+          description: A list of the top 10 cryptocurrencies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    symbol:
+                      type: string
+                    name:
+                      type: string
+                    current_price:
+                      type: number
+                    market_cap:
+                      type: number
+                    image:
+                      type: string
+  /search:
+    get:
+      summary: Search for cryptocurrencies by name, symbol, or id
+      parameters:
+        - name: query
+          in: query
+          description: The search term (e.g., 'bitcoin', 'eth')
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of matching coins
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    symbol:
+                      type: string
+                    market_cap_rank:
+                      type: integer
+                    thumb:
+                      type: string
+  /coin:
+    get:
+      summary: Get detailed information about a specific coin
+      parameters:
+        - name: id
+          in: query
+          description: The CoinGecko id of the coin (e.g., 'bitcoin')
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detailed coin data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  symbol:
+                    type: string
+                  name:
+                    type: string
+                  market_data:
+                    type: object
+                  image:
+                    type: object
+                  description:
+                    type: object
