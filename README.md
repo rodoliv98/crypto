@@ -11,19 +11,21 @@ Endpoints
 1. Get Paginated Market Data
 GET /
 
-| Query Parameter | Type | Default | Description | |-----------------|---------|---------|--------------------------------------------------| | page | integer | 1 | Page number for pagination | | per_page | integer | 50 | Number of coins per page (max 250) | | vs_currency | string | brl | Currency for prices (usd or brl) |
+| Query Parameter | Type | Default | Description | |-----------------|---------|---------|-----------------------------------------------| | page | integer | 1 | Page number for pagination | | per_page | integer | 50 | Number of coins per page (max 250) | | vs_currency | string | brl | Currency for prices (usd or brl) |
 
 Example:
-GET /?page=1&per_page=100&vs_currency=usd
 
+CopyInsert
+GET /?page=1&per_page=100&vs_currency=usd
 2. Search for Coins
 GET /search
 
-| Query Parameter | Type | Required | Description | |-----------------|--------|----------|----------------------------| | query | string | yes | Coin name or symbol to search for |
+| Query Parameter | Type | Required | Description | |-----------------|--------|----------|---------------------------------| | query | string | yes | Coin name or symbol to search |
 
 Example:
-GET /search?query=bitcoin
 
+CopyInsert
+GET /search?query=bitcoin
 3. Get Total Number of Coins
 GET /total
 
@@ -32,19 +34,21 @@ Returns the total number of available coins and their basic info.
 4. Get Coin Details (by Query)
 GET /coin
 
-| Query Parameter | Type | Required | Description | |-----------------|--------|----------|--------------------------------| | id | string | yes | CoinGecko coin ID (e.g. bitcoin) | | currency | string | no | Currency for price (usd or brl, default: usd) |
+| Query Parameter | Type | Required | Description | |-----------------|--------|----------|--------------------------------------------| | id | string | yes | CoinGecko coin ID (e.g. bitcoin) | | currency | string | no | Currency for price (usd or brl, default: usd) |
 
 Example:
-GET /coin?id=bitcoin&currency=usd
 
+CopyInsert
+GET /coin?id=bitcoin&currency=usd
 5. Get Coin Details (by Path)
 GET /coin/:id
 
-| Path Parameter | Type | Required | Description | |----------------|--------|----------|--------------------------------| | id | string | yes | CoinGecko coin ID (e.g. bitcoin) |
+| Path Parameter | Type | Required | Description | |----------------|--------|----------|----------------------------------| | id | string | yes | CoinGecko coin ID (e.g. bitcoin) |
 
 Example:
-GET /coin/bitcoin
 
+CopyInsert
+GET /coin/bitcoin
 Setup & Usage
 Clone the repository:
 bash
@@ -71,7 +75,7 @@ apicache (caching)
 express-rate-limit (rate limiting)
 CORS
 Documentation
-See [openapi.yaml](./openapi.yaml) for full OpenAPI documentation of all endpoints and schemas.
+See openapi.yaml for full OpenAPI documentation of all endpoints and schemas.
 
 License
 ISC
