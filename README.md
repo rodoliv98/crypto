@@ -41,7 +41,8 @@ Prerequisites
 
 Installation
 -------------
-
+```
 git clone https://github.com/your-org/crypto-api.git
 cd crypto-api
 npm install
+```
