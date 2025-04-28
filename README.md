@@ -40,7 +40,8 @@ Prerequisites
 - Internet access to reach CoinGecko’s public API  
 
 Installation
-```
+-------------
+
 git clone https://github.com/your-org/crypto-api.git
 cd crypto-api
-npm install```
+npm install
