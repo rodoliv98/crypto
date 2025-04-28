@@ -70,7 +70,7 @@ All endpoints return JSON and utilize server-side caching (see individual TTL).
 1. GET /
 Fetches market data for top coins.
 
-Query Parameters
+- Query Parameters
 
 page (integer, default: 1)
 
