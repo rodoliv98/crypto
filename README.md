@@ -72,11 +72,11 @@ Fetches market data for top coins.
 
 - Query Parameters
 
--- page (integer, default: 1)
+   `page` (integer, default: 1)
 
-per_page (integer, default: 50)
+  `per_page` (integer, default: 50)
 
-vs_currency (usd or brl, default: brl)
+  `vs_currency` (usd or brl, default: brl)
 
 Response
 ```
