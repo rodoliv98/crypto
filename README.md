@@ -48,6 +48,7 @@ npm install
 ```
 
 Configuration
+-------------
 Create a .env file in the project root:
 ```
 # .env
@@ -56,12 +57,14 @@ PORT=3000                           # (Optional) HTTP port (default: 3000)
 ```
 
 Running the Server
+-------------
 ```
 npm run dev
 ```
 By default, the API listens on http://localhost:3000.
 
 API Reference
+-------------
 All endpoints return JSON and utilize server-side caching (see individual TTL).
 
 1. GET /
@@ -165,6 +168,7 @@ Full JSON as returned by CoinGecko’s /coins/{id} endpoint.
 Cache TTL: 60 minutes
 
 Error Handling
+-------------
 400 Bad Request
 Missing or invalid parameters (e.g. no id):
 ```
@@ -182,6 +186,7 @@ Upstream or unexpected errors:
 ```
 
 **Contributing**
+-------------
 Contributions are welcome! Please follow these steps:
 
 Fork the repository.
@@ -195,4 +200,5 @@ Push to your branch: git push origin feature/YourFeature.
 Open a Pull Request.
 
 License
+-------------
 Distributed under the MIT License. See LICENSE for details.
