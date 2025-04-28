@@ -67,7 +67,7 @@ API Reference
 -------------
 All endpoints return JSON and utilize server-side caching (see individual TTL).
 
-####1. GET `/`<br>
+#1. GET `/`<br>
 Fetches market data for top coins.
 
 - Query Parameters
