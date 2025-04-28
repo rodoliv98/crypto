@@ -67,7 +67,7 @@ API Reference
 -------------
 All endpoints return JSON and utilize server-side caching (see individual TTL).
 
-1. GET /
+1. GET `/`<br>
 Fetches market data for top coins.
 
 - Query Parameters
@@ -95,7 +95,7 @@ Fetches market data for top coins.
 ```
 - Cache TTL: 5 minutes
 
-2. GET /total
+2. GET `/total`
 Retrieves a simplified list of all coins and the total count.
 
 - Response
@@ -110,7 +110,7 @@ Retrieves a simplified list of all coins and the total count.
 ```
 - Cache TTL: 5 minutes
 
-3. GET /search
+3. GET `/search`
 Search coins by name or symbol.
 
 - Query Parameters
@@ -136,7 +136,7 @@ Search coins by name or symbol.
 ```
 - Cache TTL: 5 minutes
 
-4. GET /coin
+4. GET `/coin`
 Get the current price for a single coin.
 
 - Query Parameters
