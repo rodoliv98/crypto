@@ -72,7 +72,7 @@ Fetches market data for top coins.
 
 - Query Parameters
 
- - page (integer, default: 1)
+-- page (integer, default: 1)
 
 per_page (integer, default: 50)
 
