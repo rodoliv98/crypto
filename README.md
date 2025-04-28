@@ -67,7 +67,7 @@ API Reference
 -------------
 All endpoints return JSON and utilize server-side caching (see individual TTL).
 
-#1. GET `/`<br>
+1. GET `/`<br>
 Fetches market data for top coins.
 
 - Query Parameters
@@ -95,7 +95,7 @@ Fetches market data for top coins.
 ```
 - Cache TTL: 5 minutes
 
-2. GET `/total`
+2. GET `/total`<br>
 Retrieves a simplified list of all coins and the total count.
 
 - Response
@@ -110,7 +110,7 @@ Retrieves a simplified list of all coins and the total count.
 ```
 - Cache TTL: 5 minutes
 
-3. GET `/search`
+3. GET `/search`<br>
 Search coins by name or symbol.
 
 - Query Parameters
@@ -136,7 +136,7 @@ Search coins by name or symbol.
 ```
 - Cache TTL: 5 minutes
 
-4. GET `/coin`
+4. GET `/coin`<br>
 Get the current price for a single coin.
 
 - Query Parameters
@@ -155,7 +155,7 @@ Get the current price for a single coin.
 ```
 - Cache TTL: 60 minutes
 
-5. GET /coin/:id
+5. GET `/coin/:id`<br>
 Fetch full metadata for a specific coin.
 
 - Path Parameter
@@ -169,17 +169,17 @@ Full JSON as returned by CoinGecko’s /coins/{id} endpoint.
 
 Error Handling
 -------------
-- 400 Bad Request
+- 400 Bad Request<br>
   Missing or invalid parameters (e.g. no id):
 ```
 { "error": "No coin provided" }
 ```
-- 429 Too Many Requests
+- 429 Too Many Requests<br>
   Rate limit exceeded:
 ```
 { "error": "Too many requests, please try again later" }
 ```
-- 500 Internal Server Error
+- 500 Internal Server Error<br>
   Upstream or unexpected errors:
 ```
 { "error": "Error while fetching data from CoinGecko" }
