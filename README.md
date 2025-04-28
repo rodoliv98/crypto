@@ -78,7 +78,7 @@ Fetches market data for top coins.
 
   `vs_currency` (usd or brl, default: brl)
 
-Response
+- Response
 ```
 [
   {
@@ -93,12 +93,12 @@ Response
   // …
 ]
 ```
-Cache TTL: 5 minutes
+- Cache TTL: 5 minutes
 
 2. GET /total
 Retrieves a simplified list of all coins and the total count.
 
-Response
+- Response
 ```
 {
   "total": 12345,
@@ -108,16 +108,16 @@ Response
   ]
 }
 ```
-Cache TTL: 5 minutes
+- Cache TTL: 5 minutes
 
 3. GET /search
 Search coins by name or symbol.
 
-Query Parameters
+- Query Parameters
 
-query (string, required)
+  `query` (string, required)
 
-Response
+- Response
 ```
 {
   "coins": [
@@ -134,18 +134,18 @@ Response
 }
 
 ```
-Cache TTL: 5 minutes
+- Cache TTL: 5 minutes
 
 4. GET /coin
 Get the current price for a single coin.
 
-Query Parameters
+- Query Parameters
 
-id (string, required)
+  `id` (string, required)
 
-currency (usd or brl, default: usd)
+  `currency` (usd or brl, default: usd)
 
-Response
+- Response
 ```
 {
   "id": "ethereum",
@@ -153,34 +153,34 @@ Response
 }
 
 ```
-Cache TTL: 60 minutes
+- Cache TTL: 60 minutes
 
 5. GET /coin/:id
 Fetch full metadata for a specific coin.
 
-Path Parameter
+- Path Parameter
 
-:id (string, required)
+  `:id` (string, required)
 
-Response
+- Response
 Full JSON as returned by CoinGecko’s /coins/{id} endpoint.
 
-Cache TTL: 60 minutes
+- Cache TTL: 60 minutes
 
 Error Handling
 -------------
-400 Bad Request
-Missing or invalid parameters (e.g. no id):
+- 400 Bad Request
+  Missing or invalid parameters (e.g. no id):
 ```
 { "error": "No coin provided" }
 ```
-429 Too Many Requests
-Rate limit exceeded:
+- 429 Too Many Requests
+  Rate limit exceeded:
 ```
 { "error": "Too many requests, please try again later" }
 ```
-500 Internal Server Error
-Upstream or unexpected errors:
+- 500 Internal Server Error
+  Upstream or unexpected errors:
 ```
 { "error": "Error while fetching data from CoinGecko" }
 ```
@@ -189,15 +189,15 @@ Upstream or unexpected errors:
 -------------
 Contributions are welcome! Please follow these steps:
 
-Fork the repository.
+* Fork the repository.
 
-Create a feature branch: git checkout -b feature/YourFeature.
+* Create a feature branch: git checkout -b feature/YourFeature.
 
-Commit your changes: git commit -m "Add your feature".
+* Commit your changes: git commit -m "Add your feature".
 
-Push to your branch: git push origin feature/YourFeature.
+* Push to your branch: git push origin feature/YourFeature.
 
-Open a Pull Request.
+* Open a Pull Request.
 
 License
 -------------
