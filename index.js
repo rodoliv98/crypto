@@ -30,13 +30,13 @@ function errorHandler(err, res) {
 }
 
 app.get('/', cache('5 minutes'), async (req, res) => {
-    const { page = 1, per_page = 50 } = req.query;
+    const { page = 1, per_page = 50, vs_currency = 'brl' || 'usd' } = req.query;
     try{
         const response = await axios.get(
             'https://api.coingecko.com/api/v3/coins/markets',
             {
                 params: {
-                    vs_currency: 'brl',
+                    vs_currency,
                     order: 'market_cap_desc',
                     page,
                     per_page,
@@ -66,31 +66,27 @@ app.get('/total', cache('5 minutes'), async (req, res) => {
 app.get('/search', cache('5 minutes'), async (req, res) => {
     const { query } = req.query;
     try{
-        const searchResponse = await axios.get('https://api.coingecko.com/api/v3/search', { params: { query } });
-        const coins = searchResponse.data.coins;
-        
-        if(!coins.length) return res.status(200).json([]);
-        
-        const ids = coins.map(coin => coin.id).join(',');
-        const marketResponse = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
-            params: {
-                vs_currency: 'brl',
-                ids,
-                sparkline: true,
-                price_change_percentage: '1h,24h,7d'
-            }
-        });
-        
-        const coin = marketResponse.data.filter(coin => coin.id === query || coin.symbol === query);
-
-        res.status(200).json(coin);
+        const response = await axios.get('https://api.coingecko.com/api/v3/search', { params: { query } });
+        res.status(200).json(response.data);
     } catch(err){
         errorHandler(err, res);
     }
 })
 
 app.get('/coin', cache('60 minutes'), async (req, res) => {
-    const { id } = req.query;
+    const { id, currency = 'usd' || 'brl' } = req.query;
+    if(!id) return res.status(400).json({ error: 'No coin provided' });
+    try{
+        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
+        const price = response.data.market_data.current_price[currency];
+        res.status(200).json({ id, price });
+    } catch(err){
+        errorHandler(err, res);
+    }
+})
+
+app.get('/coin/:id', cache('60 minutes'), async (req, res) => {
+    const { id } = req.params;
     if(!id) return res.status(400).json({ error: 'No coin provided' });
     try{
         const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
