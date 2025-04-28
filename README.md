@@ -1,4 +1,4 @@
-crypto-api
+Crypto-API
 ==========
 
 A high-performance Node.js + Express service that proxies, rate-limits, and caches requests to the CoinGecko API. Designed to power front-end applications with reliable, fast crypto market data.
@@ -189,15 +189,15 @@ Error Handling
 -------------
 Contributions are welcome! Please follow these steps:
 
-* Fork the repository.
+1. Fork the repository.
 
-* Create a feature branch: git checkout -b feature/YourFeature.
+2. Create a feature branch: git checkout -b feature/YourFeature.
 
-* Commit your changes: git commit -m "Add your feature".
+3. Commit your changes: git commit -m "Add your feature".
 
-* Push to your branch: git push origin feature/YourFeature.
+4. Push to your branch: git push origin feature/YourFeature.
 
-* Open a Pull Request.
+5. Open a Pull Request.
 
 License
 -------------
